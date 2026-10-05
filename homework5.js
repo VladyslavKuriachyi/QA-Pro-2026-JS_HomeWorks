@@ -8,7 +8,7 @@ const services = {
 
         for (let key in this) {
             if (typeof this[key] === "string") {
-           let number = parseInt(this[key], 10);
+           let number = parseFloat(this[key].replace(',','.'));
            total += number;
             }
         }
@@ -18,7 +18,7 @@ const services = {
         let min = null;
         for (let key in this) {
             if (typeof this[key] === "string") {
-                let number = parseInt(this[key], 10);
+                let number = parseFloat(this[key].replace(',','.'));
                 if (min === null || number <= min) {
                     min = number;
                 }
@@ -30,7 +30,7 @@ const services = {
         let max = null;
         for (let key in this) {
             if (typeof this[key] === "string") {
-                let number = parseInt(this[key], 10);
+                let number = parseFloat(this[key].replace(',','.'));
                 if (max === null || number >= max) {
                     max = number;
                 }
@@ -44,7 +44,7 @@ console.log(services.price());
 console.log(services.minPrice());
 console.log(services.maxPrice());
 
-services['Розбити скло'] = "200 грн";
+services['Розбити скло'] = "200,20 грн";
 services['skin Fade'] = "20 грн";
 console.log(services.price());
 console.log(services.minPrice());
